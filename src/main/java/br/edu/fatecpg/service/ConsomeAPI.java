@@ -38,8 +38,8 @@ public class ConsomeAPI {
                     .filter(campo -> campo.get("price").asDouble() < precoMaximo) // Filtra produtos pelo preço informado
                     .sorted((p1, p2) -> Double.compare(p2.get("price").asDouble(), p1.get("price").asDouble())) // Ordena em ordem decrescente
                     .map(campo ->" R$ " + campo.get("price").asDouble() + "     " + campo.get("title").asText().toUpperCase()) // Extrai o título do produto e coloca em maiúsculas
-                              // Adiciona o preço formatado
-                    .collect(Collectors.toList()); // Coleta em uma List para manter a ordem
+
+                    .collect(Collectors.toList()); // coleta em uma List
 
         } else {
             throw new IOException( "erro ao acessar a API. Status code: " + response.statusCode());
